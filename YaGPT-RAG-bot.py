@@ -128,7 +128,8 @@ def main():
     mdb_os_ca = MDB_OS_CA
     # mdb_os_pwd = st.sidebar.text_input("MDB_OpenSearch_PASSWORD", type='password')
     # mdb_os_hosts = st.sidebar.text_input("MDB_OpenSearch_HOSTS через 'запятую' ", type='password').split(",")
-    # mdb_os_index_name = st.sidebar.text_input("MDB_OpenSearch_INDEX_NAME")
+    mdb_os_index_name = st.sidebar.text_input("MDB_OpenSearch_INDEX_NAME")
+    mdb_os_index_name = f"mesh-{mdb_os_index_name}"
 
 
     # Параметры chunk_size и chunk_overlap
