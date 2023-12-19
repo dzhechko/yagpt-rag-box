@@ -131,6 +131,7 @@ def main():
     mdb_os_index_name = st.sidebar.text_input("MDB_OpenSearch_INDEX_NAME", type='password', value=mdb_os_index_name)
     mdb_os_index_name = f"mesh-{mdb_os_index_name}"
     yagpt_temp = st.sidebar.text_input("Температура", type='password', value=0.01)
+    rag_k = st.sidebar.text_input("Количество поисковых выдач размером с один блок", type='password', value=5)
 
 
     # Параметры chunk_size и chunk_overlap
@@ -215,7 +216,7 @@ def main():
         QA_CHAIN_PROMPT = PromptTemplate.from_template(template)
         qa = RetrievalQA.from_chain_type(
             llm,
-            retriever=vectorstore.as_retriever(search_kwargs={'k': 5}),
+            retriever=vectorstore.as_retriever(search_kwargs={'k': rag_k}),
             return_source_documents=True,
             chain_type_kwargs={"prompt": QA_CHAIN_PROMPT}
         )
