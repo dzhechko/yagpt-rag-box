@@ -130,6 +130,8 @@ def main():
     # mdb_os_hosts = st.sidebar.text_input("MDB_OpenSearch_HOSTS через 'запятую' ", type='password').split(",")
     mdb_os_index_name = st.sidebar.text_input("MDB_OpenSearch_INDEX_NAME", type='password', value=mdb_os_index_name)
     mdb_os_index_name = f"mesh-{mdb_os_index_name}"
+
+    global yagpt_temp, rag_k
     yagpt_temp = st.sidebar.slider("Температура", 0.01, 1, 0.3)
     rag_k = st.sidebar.slider("Количество поисковых выдач размером с один блок", 1, 10, 5)
 
