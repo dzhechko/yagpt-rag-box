@@ -131,10 +131,11 @@ def main():
     mdb_os_index_name = st.sidebar.text_input("MDB_OpenSearch_INDEX_NAME", type='password', value=mdb_os_index_name)
     mdb_os_index_name = f"mesh-{mdb_os_index_name}"
 
-    global yagpt_temp, rag_k
-    yagpt_temp = st.sidebar.slider("Температура", 0.0, 1.0, 0.1)
-    rag_k = st.sidebar.slider("Количество поисковых выдач размером с один блок", 1, 10, 5)
+    # yagpt_temp = st.sidebar.slider("Температура", 0.0, 1.0, 0.1)
+    # rag_k = st.sidebar.slider("Количество поисковых выдач размером с один блок", 1, 10, 5)
 
+    yagpt_temp = st.sidebar.text_input("Температура", type='password', value=0.01)
+    rag_k = st.sidebar.text_input("Количество поисковых выдач размером с один блок", type='password', value=5)
 
     # Параметры chunk_size и chunk_overlap
     global chunk_size, chunk_overlap
